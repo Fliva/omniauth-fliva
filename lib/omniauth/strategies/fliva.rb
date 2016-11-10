@@ -14,12 +14,15 @@ module OmniAuth
 
       info do
         {
-          :account => raw_info["account"]
+          :account => raw_info["attributes"]["account"]["id"],
+          :account_name => raw_info["attributes"]["account"]["title"],
+          :user_name => raw_info["attributes"]["name"],
+          :user_email => raw_info["attributes"]["email"]
         }
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/me.json').parsed
+        @raw_info ||= access_token.get('/me.json').parsed["data"]
       end
 
       def callback_url
