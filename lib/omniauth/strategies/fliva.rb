@@ -14,10 +14,10 @@ module OmniAuth
 
       info do
         {
-          :account => raw_info["attributes"]["account"]["id"],
-          :account_name => raw_info["attributes"]["account"]["title"],
-          :user_name => raw_info["attributes"]["name"],
-          :user_email => raw_info["attributes"]["email"]
+          :account => raw_info["account"]["id"],
+          :account_name => raw_info["account"]["title"],
+          :user_name => raw_info["name"],
+          :user_email => raw_info["email"]
         }
       end
 
